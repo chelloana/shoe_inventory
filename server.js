@@ -9,17 +9,17 @@ app.use(express.json());
 // Middleware untuk meng-handle form data
 app.use(express.urlencoded({ extended: false }));
 
-// Mengakses file statis seperti HTML, CSS, dan JavaScript dari folder public
-app.use(express.static(path.join(__dirname, 'public')));
+// Mengakses file statis seperti HTML, CSS, dan JavaScript dari direktori yang sama dengan server.js
+app.use(express.static(__dirname));
 
 // Routing untuk halaman login
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 // Routing untuk halaman utama/indeks
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Jalankan server
