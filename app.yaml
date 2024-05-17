@@ -1,3 +1,3 @@
 # app.yaml
 runtime: nodejs18
-service: auth-shoe-inventory
+service: crud-shoe-inventory
