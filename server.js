@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Serve login.html saat permintaan "/login"
+// Serve login.html saat permintaan "/login.html"
 app.get("/login.html", (req, res) => {
     res.sendFile(path.join(__dirname, "login.html"));
 });
