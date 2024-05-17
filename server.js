@@ -2,10 +2,18 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
+// Serve index.html saat permintaan root URL ("/")
 app.get("/", (req, res) => {
-    // Membaca file index.html dari direktori yang sama dengan server.js
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Serve login.html saat permintaan "/login"
+app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "login.html"));
 });
+
+// Setel middleware untuk menyajikan file statis dari direktori "public"
+app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
