@@ -1,3 +1,0 @@
-# app.yaml
-runtime: nodejs18
-service: crud-shoe-inventory
