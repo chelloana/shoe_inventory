@@ -4,7 +4,7 @@ const app = express();
 
 app.get("/", (req, res) => {
     // Membaca file index.html dari direktori yang sama dengan server.js
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "login.html"));
 });
 
 const PORT = process.env.PORT || 3000;
