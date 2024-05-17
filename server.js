@@ -8,12 +8,9 @@ app.get("/", (req, res) => {
 });
 
 // Serve login.html saat permintaan "/login"
-app.get("/login", (req, res) => {
+app.get("/login.html", (req, res) => {
     res.sendFile(path.join(__dirname, "login.html"));
 });
-
-// Setel middleware untuk menyajikan file statis dari direktori "public"
-app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
