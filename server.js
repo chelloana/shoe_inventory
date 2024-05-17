@@ -1,14 +1,26 @@
-const path = require("path");
-const express = require("express");
+const express = require('express');
+const path = require('path');
+
 const app = express();
-
-app.get("/", (req, res) => {
-    // Membaca file index.html dari direktori yang sama dengan server.js
-    res.sendFile(path.join(__dirname, "login.html"));
-    res.sendFile(path.join(__dirname, "index.html"));
-});
-
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`server listening on port ${PORT}...`);
+
+// Middleware untuk meng-handle JSON request body
+app.use(express.json());
+// Middleware untuk meng-handle form data
+app.use(express.urlencoded({ extended: false }));
+
+// Mengakses file statis seperti HTML, CSS, dan JavaScript dari folder public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routing untuk halaman login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
+// Routing untuk halaman utama/indeks
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Jalankan server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
