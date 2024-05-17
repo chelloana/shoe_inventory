@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // Import modul cors
 const app = express();
 const path = require('path');
 const sequelize = require('./config/db.config');
@@ -7,6 +8,7 @@ const userRoutes = require('./routes/userRoutes');
 
 // Middleware
 app.use(express.json());
+app.use(cors()); // Tambahkan middleware cors di sini
 
 // Routes
 app.use('/api', authRoutes);
