@@ -23,8 +23,8 @@
 
         .header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             padding: 10px 20px;
             background-color: #3e2723;
             color: #fff;
@@ -121,11 +121,18 @@
         #editFormContainer {
             margin-bottom: 20px;
         }
+
+        .header img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="header">
+        <img src="https://storage.cloud.google.com/shoeinventoryfile/sepatu.png" alt="Shoe Image">
         <h1 class="title">Shoe Inventory</h1>
         <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
